@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.code.onboarding.dto.Person;
+import com.code.onboarding.dto.PersonDTO;
 import com.code.onboarding.payload.DemoPayLoad;
 import com.code.onboarding.service.PersonService;
 
@@ -16,7 +16,7 @@ public class DemoController {
 	private PersonService personService;
 	
 	@GetMapping("detail/{name}")
-	public Person welcomeUser(@PathVariable("name") String name) {
+	public PersonDTO welcomeUser(@PathVariable("name") String name) {
 		return DemoPayLoad.getFormattedPayload(personService.getPersonByName(name, false));
 	}
 	

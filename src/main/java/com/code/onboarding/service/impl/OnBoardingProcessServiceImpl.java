@@ -24,12 +24,12 @@ public class OnBoardingProcessServiceImpl implements OnBoardingProcessService {
 	}
 
 	@Override
-	public void saveOnBoardingProcesses(List<OnBoardingProcessDTO> onBoardingProcesses, Project associatedProject) {
+	public void saveOnBoardingProcesses(List<OnBoardingProcessDTO> onBoardingProcesses, int  projectId) {
 		List<OnBoardingProcess> processes = new ArrayList<>();
 		onBoardingProcesses.forEach(process -> {
 			OnBoardingProcess onBoardingProcess = new OnBoardingProcess();
 			BeanUtils.copyProperties(process, onBoardingProcess);
-			onBoardingProcess.setProject(associatedProject);
+			onBoardingProcess.setProject(new Project(projectId));
 			processes.add(onBoardingProcess);
 		});
 

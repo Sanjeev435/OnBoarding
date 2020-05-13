@@ -1,9 +1,9 @@
 package com.code.onboarding.service;
 
-import com.code.onboarding.dto.Person;
+import com.code.onboarding.dto.PersonDTO;
 
 public interface PersonService {
 	
-	public Person getPersonByName(String name, boolean isExcel);
+	public PersonDTO getPersonByName(String name, boolean isExcel);
 
 }

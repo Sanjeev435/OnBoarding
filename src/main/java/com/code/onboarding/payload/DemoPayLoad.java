@@ -1,10 +1,10 @@
 package com.code.onboarding.payload;
 
-import com.code.onboarding.dto.Person;
+import com.code.onboarding.dto.PersonDTO;
 
 public class DemoPayLoad {
 	
-	public static Person getFormattedPayload(Person person) {
+	public static PersonDTO getFormattedPayload(PersonDTO person) {
 		return person;
 	}
 	

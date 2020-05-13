@@ -30,7 +30,7 @@ public class OnBoardingProcess {
 	@SequenceGenerator(sequenceName="S_ONBOARDING_PROCESS", allocationSize = 1, name = "S_ONBOARDING_PROCESS")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_ONBOARDING_PROCESS")
 	@Column(name = "PROCESS_ID", precision = 9)
-	private int processId;
+	private Integer processId;
 
 	@Column(name = "COMMNETS", length = 200)
 	private String comments;

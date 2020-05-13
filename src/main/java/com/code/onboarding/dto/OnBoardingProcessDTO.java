@@ -1,5 +1,7 @@
 package com.code.onboarding.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@XmlRootElement(name = "onBoardingProcess")
 public class OnBoardingProcessDTO {
 
 	private String comments;

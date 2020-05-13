@@ -11,7 +11,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
-import com.code.onboarding.dto.Person;
+import com.code.onboarding.dto.PersonDTO;
 
 import lombok.NoArgsConstructor;
 
@@ -26,12 +26,12 @@ public class CsvService extends AbstractFileReader {
 	static String cvsSplitBy = ",";
 
 	@Override
-	public List<Person> readFile(String fileName) {
+	public List<PersonDTO> readFile(String fileName) {
 		return getData(fileName);
 	}
 
-	private List<Person> getData(String fileName) {
-		List<Person> persons = new ArrayList<>();
+	private List<PersonDTO> getData(String fileName) {
+		List<PersonDTO> persons = new ArrayList<>();
 		try {
 			Resource resource = resourceLoader.getResource("classpath:" + fileName);
 			try (BufferedReader br = new BufferedReader(new FileReader(resource.getFile()))) {
@@ -54,7 +54,7 @@ public class CsvService extends AbstractFileReader {
 		return persons;
 	}
 
-	private Person setValuesInPerson(String[] person) {
-		return new Person(person[0], person[1], person[2], Integer.parseInt(person[3]));
+	private PersonDTO setValuesInPerson(String[] person) {
+		return new PersonDTO(person[0], person[1], person[2], Integer.parseInt(person[3]));
 	}
 }

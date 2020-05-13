@@ -16,19 +16,25 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "T_PROJECT_DETAILS")
 public class Project implements Serializable, Copyable<Project>{
 
 	private static final long serialVersionUID = 1L;
 
+	public Project() {
+		this.projectId = null;
+	}
+	
+	public Project(Integer projectId) {
+		this.projectId = projectId;
+	}
+	
 	public Project(String projectAppliCode, String projectLongName, 
 			String projectShortName, String unitName) {
 		this.projectAppliCode = projectAppliCode;
@@ -41,7 +47,7 @@ public class Project implements Serializable, Copyable<Project>{
 	@SequenceGenerator(sequenceName="S_PROJECT_DETAILS", allocationSize = 1, name = "S_PROJECT_DETAILS")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_PROJECT_DETAILS")
 	@Column(name = "PROJECT_ID", precision = 9)
-	private int projectId;
+	private Integer projectId;
 
 	@Column(name = "PROJECT_APPLI_CODE", length = 20)
 	private String projectAppliCode;
@@ -57,9 +63,6 @@ public class Project implements Serializable, Copyable<Project>{
 
 	@OneToMany(targetEntity = OnBoardingProcess.class, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OnBoardingProcess> onBoardingProcessess = new ArrayList<>();
-
-	@OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Employee> employeees = new ArrayList<>();
 	
 	/**
 	 * <pre>

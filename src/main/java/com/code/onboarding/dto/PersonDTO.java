@@ -1,5 +1,7 @@
 package com.code.onboarding.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+@XmlRootElement(name = "person")
+public class PersonDTO {
 	
 	private String name;
 	private String lastName;

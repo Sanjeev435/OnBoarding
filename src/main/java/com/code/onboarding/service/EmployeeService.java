@@ -1,9 +1,15 @@
 package com.code.onboarding.service;
 
+import java.util.List;
+
 import com.code.onboarding.dto.EmployeeDTO;
 
 public interface EmployeeService {
 
-	void saveEmployee(EmployeeDTO employeeDetails);
+	Integer saveEmployee(EmployeeDTO employeeDetails);
+
+	EmployeeDTO getEmployeeDetails(String emailId);
+	
+	List<EmployeeDTO> searchEmployees(String keyWord);
 
 }

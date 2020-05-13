@@ -14,7 +14,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
-import com.code.onboarding.dto.Person;
+import com.code.onboarding.dto.PersonDTO;
 
 @Component
 public class ExcelService extends AbstractFileReader {
@@ -23,12 +23,12 @@ public class ExcelService extends AbstractFileReader {
 	private ResourceLoader resourceLoader;
 
 	@Override
-	public List<Person> readFile(String fileName) {
+	public List<PersonDTO> readFile(String fileName) {
 		return getData(fileName);
 	}
 
-	public List<Person> getData(String fileName) {
-		List<Person> persons = new ArrayList<>();
+	public List<PersonDTO> getData(String fileName) {
+		List<PersonDTO> persons = new ArrayList<>();
 		try {
 
 			Resource resource = resourceLoader.getResource("classpath:" + fileName);
@@ -46,7 +46,7 @@ public class ExcelService extends AbstractFileReader {
 					Row row = rowIterator.next();
 					// For each row, iterate through all the columns
 					Iterator<Cell> cellIterator = row.cellIterator();
-					Person person = new Person();
+					PersonDTO person = new PersonDTO();
 					int counter = 0;
 					while (cellIterator.hasNext()) {
 						Cell currentCell = cellIterator.next();
@@ -66,7 +66,7 @@ public class ExcelService extends AbstractFileReader {
 		return persons;
 	}
 
-	private void setValuesInerson(Person person, int counter, Cell currentCell) {
+	private void setValuesInerson(PersonDTO person, int counter, Cell currentCell) {
 
 		switch (counter) {
 		case 0:
