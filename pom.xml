@@ -36,6 +36,22 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<!-- LOMBOK for boiler plate code -->
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -61,25 +77,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
-<!-- 		<dependency>
-    <groupId>io.springfox</groupId>
-    <artifactId>springfox-spring-web</artifactId>
-    <version>2.9.2</version>
-</dependency> -->
-<!-- <dependency>
-    <groupId>io.springfox</groupId>
-    <artifactId>springfox-core</artifactId>
-    <version>2.9.2</version>
-</dependency> -->
-<!-- <dependency>
-    <groupId>io.swagger</groupId>
-    <artifactId>swagger-annotations</artifactId>
-    <version>1.6.1</version>
-</dependency> -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
 
 		<!-- Apache POI for excel -->
 		<dependency>
@@ -103,6 +100,11 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>jakarta.mail</artifactId>
+		</dependency>
+
 		<!-- Dependency for Test Cases -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -119,6 +121,15 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

@@ -1,0 +1,45 @@
+# Server properties
+server:
+   port: 8080
+   servlet:
+      context-path: /onboarding
+
+
+# Database Settings
+spring:
+   datasource: 
+      url: ${datasource.url}
+      username: ${datasource.username}
+      password: ${datasource.password}
+      driver-class-name: oracle.jdbc.OracleDriver
+      hikari:
+         connection-timeout: 60000
+         maximum-pool-size: 5
+   jpa:
+      show-sql: false
+      properties:
+         hibernate:
+            format_sql: true
+   data:
+      jdbc:
+         repositories:
+            enabled: false
+   profiles:
+      include:
+         - roles
+            
+# Mail properties
+mail:
+   smtp:
+      host: localhost
+   sender:
+      address: ${sender.address}
+      password: ${sender.password}
+      
+# Additional config files
+#spring:
+#  profiles:
+#    include:
+ #     - roles
+
+

@@ -42,6 +42,10 @@ public class Project implements Serializable, Copyable<Project>{
 		this.projectShortName = projectShortName;
 		this.unitName = unitName;
 	}
+	
+	public boolean isProjectExist() {
+      return projectId != null && Integer.compare(projectId, 0) > 0;
+    }
 
 	@Id
 	@SequenceGenerator(sequenceName="S_PROJECT_DETAILS", allocationSize = 1, name = "S_PROJECT_DETAILS")

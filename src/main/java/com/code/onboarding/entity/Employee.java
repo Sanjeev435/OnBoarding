@@ -42,6 +42,10 @@ public class Employee implements Serializable {
 		this.emailId = emailId;
 		this.subGroup = subGroup;
 	}
+	
+	public boolean isEmployeeExist() {
+	  return employeeId != null && Integer.compare(employeeId, 0) > 0;
+	}
 
 	@Id
 	@SequenceGenerator(sequenceName="S_EMPLOYEE_DETAIL", allocationSize = 1, name = "S_EMPLOYEE_DETAIL")

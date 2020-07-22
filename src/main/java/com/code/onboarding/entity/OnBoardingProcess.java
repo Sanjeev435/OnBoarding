@@ -1,5 +1,8 @@
 package com.code.onboarding.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -31,9 +35,6 @@ public class OnBoardingProcess {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_ONBOARDING_PROCESS")
 	@Column(name = "PROCESS_ID", precision = 9)
 	private Integer processId;
-
-	@Column(name = "COMMNETS", length = 200)
-	private String comments;
 
 	@Column(name = "DOCUMENT_NAME", length = 100)
 	private String documentName;
@@ -71,4 +72,7 @@ public class OnBoardingProcess {
 	@JoinColumn(name = "PROJECT_APPLI_CODE")
 	@ManyToOne(cascade = CascadeType.ALL, targetEntity = Project.class, fetch = FetchType.LAZY)
 	private Project project;
+	
+	@OneToMany(targetEntity = Comments.class, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Comments> userComments = new ArrayList<>();
 }

@@ -1,0 +1,28 @@
+roles:
+    admin:
+       get:
+         - /ADMIN/getDetails
+         - /ADMIN/getDetail
+       post:
+         - /ADMIN/post/getDetails
+         - /ADMIN/post/getDetail
+    manager:
+       get:
+         - /MANAGER/getDetails
+         - /ADMIN/getDetail
+       post:
+         - /MANAGER/getDetails
+         - /ADMIN/getDetail
+       delete:
+         - /MANAGER/getDetails
+         - /ADMIN/getDetail
+    user:
+       get:
+         - /USR/getDetails
+         - /USR/getDetail
+       post:
+         - /USR/getDetails
+         - /USR/getDetail
+       delete:
+         - /USR/getDetails
+         - /USR/getDetail

@@ -55,7 +55,8 @@ public class ProjectServiceImpl implements ProjectService {
   @Override
   public List<ProjectDTO> searchEmployees(String keyWord) {
     List<ProjectDTO> projects = new ArrayList<>();
-    projectRepository.findAll(ProjectSpecification.getProjectByKeyword(keyWord))
+    projectRepository
+        .findAll(ProjectSpecification.ComplexSpecifications.getProjectByKeyword(keyWord))
         .forEach(prj -> {
           ProjectDTO dto = new ProjectDTO();
           BeanUtils.copyProperties(prj, dto);
