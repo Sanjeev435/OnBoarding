@@ -4,14 +4,12 @@ server:
    servlet:
       context-path: /onboarding
 
-
 # Database Settings
 spring:
    datasource: 
-      url: ${datasource.url}
-      username: ${datasource.username}
-      password: ${datasource.password}
-      driver-class-name: oracle.jdbc.OracleDriver
+      url: ${db.url}
+      username: ${db.user}
+      password: ${db.password}
       hikari:
          connection-timeout: 60000
          maximum-pool-size: 5
@@ -33,13 +31,14 @@ mail:
    smtp:
       host: localhost
    sender:
-      address: ${sender.address}
-      password: ${sender.password}
+      address: abc.xyz@gmail.com
+      password: $ampleP@ssw0rd
       
 # Additional config files
 #spring:
 #  profiles:
 #    include:
- #     - roles
+#     - roles
+
 
 

@@ -19,7 +19,6 @@ import com.code.onboarding.dto.NullAllowed;
 import com.code.onboarding.exception.OnBoardingException.DataAlreadyExistException;
 import com.code.onboarding.exception.OnBoardingException.InvalidProcessException;
 import com.code.onboarding.exception.OnBoardingException.RedundantDataException;
-import com.code.onboarding.security.Secured;
 import com.code.onboarding.service.EmployeeService;
 
 import io.swagger.annotations.Api;
@@ -37,7 +36,6 @@ public class EmployeeController {
   @Autowired
   private EmployeeService employeeService;
 
-  @Secured
   @PostMapping("create")
   @ApiOperation(value = "Create Employee")
   @ApiResponses(value = {
